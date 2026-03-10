@@ -251,10 +251,6 @@
       background: linear-gradient(135deg, #ff7ab7, #ff4f97);
     }
 
-    .memory-toggle {
-      background: linear-gradient(135deg, #ff9ccd, #ff63a7);
-    }
-
     .chat-toggle {
       background: linear-gradient(135deg, #ff8cc1, #ff5da2);
     }
@@ -326,18 +322,6 @@
       display: none;
     }
 
-    .memory-game {
-      margin-top: 22px;
-      padding: 22px;
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(255, 246, 251, 0.95), rgba(255, 228, 241, 0.86));
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-    }
-
-    .memory-game[hidden] {
-      display: none;
-    }
-
     .chat-section {
       position: relative;
       margin-top: 18px;
@@ -346,70 +330,108 @@
     .chat-shell {
       position: relative;
       width: 100%;
-      min-height: 720px;
+      min-height: 760px;
       display: grid;
-      grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+      grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
       overflow: hidden;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255, 232, 242, 0.98), rgba(255, 212, 229, 0.95));
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 249, 252, 0.98), rgba(255, 239, 246, 0.96));
       box-shadow:
-        0 24px 60px rgba(123, 24, 80, 0.18),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.58);
+        0 28px 70px rgba(123, 24, 80, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
     }
 
     .chat-sidebar {
       padding: 18px 14px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent),
-        linear-gradient(180deg, rgba(255, 170, 210, 0.92), rgba(255, 126, 186, 0.94));
-      box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.36);
-      color: #fff;
+      background: linear-gradient(180deg, rgba(255, 248, 252, 0.98), rgba(255, 235, 244, 0.96));
+      box-shadow: inset -1px 0 0 rgba(224, 131, 178, 0.14);
+      color: var(--text);
     }
 
     .chat-sidebar-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
+      display: grid;
+      gap: 4px;
+      margin-bottom: 12px;
     }
 
     .chat-sidebar-title {
-      font-size: 1.02rem;
+      font-size: 1.04rem;
       font-weight: 900;
       letter-spacing: 0.02em;
     }
 
-    .chat-sidebar-edit {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.22);
-      box-shadow: none;
+    .chat-sidebar-subtitle {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(90, 24, 64, 0.58);
+    }
+
+    .chat-search-wrap {
+      position: relative;
+      display: block;
+    }
+
+    .chat-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      color: rgba(90, 24, 64, 0.44);
+      pointer-events: none;
     }
 
     .chat-search {
       width: 100%;
-      padding: 12px 14px;
+      padding: 13px 42px 13px 40px;
       border: 0;
-      border-radius: 16px;
+      border-radius: 18px;
       font: inherit;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow:
+        inset 0 0 0 1px rgba(227, 162, 194, 0.3),
+        0 10px 22px rgba(123, 24, 80, 0.06);
     }
 
     .chat-search::placeholder {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(90, 24, 64, 0.42);
+    }
+
+    .chat-search:focus {
+      outline: none;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 93, 162, 0.34),
+        0 0 0 4px rgba(255, 93, 162, 0.08),
+        0 10px 22px rgba(123, 24, 80, 0.08);
+    }
+
+    .chat-search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      transform: translateY(-50%);
+      border-radius: 999px;
+      font-size: 0.96rem;
+      color: rgba(90, 24, 64, 0.52);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: none;
+    }
+
+    .chat-search-clear[hidden] {
+      display: none;
     }
 
     .chat-list {
       display: grid;
-      gap: 8px;
-      margin-top: 16px;
+      gap: 10px;
+      margin-top: 14px;
     }
 
     .chat-list-item {
@@ -417,16 +439,34 @@
       grid-template-columns: auto minmax(0, 1fr) auto;
       gap: 12px;
       align-items: center;
-      padding: 12px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: none;
+      padding: 14px 14px 14px 16px;
+      border-radius: 22px;
+      position: relative;
+      border: 0;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 14px 26px rgba(123, 24, 80, 0.08);
       text-align: left;
+      cursor: pointer;
     }
 
     .chat-list-item.active {
-      background: rgba(255, 255, 255, 0.26);
-      box-shadow: 0 12px 26px rgba(123, 24, 80, 0.16);
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 16px 34px rgba(123, 24, 80, 0.12);
+    }
+
+    .chat-list-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ff73b3, #ff3b8e);
+    }
+
+    .chat-list-item.has-unread {
+      transform: translateY(-1px);
     }
 
     .chat-list-avatar {
@@ -435,10 +475,24 @@
       display: grid;
       place-items: center;
       border-radius: 999px;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 900;
-      color: #ff4f97;
-      background: rgba(255, 255, 255, 0.96);
+      color: #fff;
+      background: linear-gradient(135deg, #ff71b1, #ff3a8d);
+      position: relative;
+      box-shadow: 0 10px 22px rgba(123, 24, 80, 0.14);
+    }
+
+    .chat-list-avatar::after {
+      content: "";
+      position: absolute;
+      right: 1px;
+      bottom: 1px;
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: #39d98a;
+      box-shadow: 0 0 0 2px #fff;
     }
 
     .chat-list-content {
@@ -448,7 +502,7 @@
     .chat-list-name {
       font-size: 0.94rem;
       font-weight: 900;
-      color: #fff;
+      color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -458,10 +512,14 @@
       margin-top: 3px;
       font-size: 0.82rem;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(90, 24, 64, 0.62);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .chat-list-preview.draft {
+      color: #d64587;
     }
 
     .chat-list-meta {
@@ -470,7 +528,7 @@
       gap: 8px;
       font-size: 0.76rem;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.84);
+      color: rgba(90, 24, 64, 0.46);
     }
 
     .chat-list-badge {
@@ -480,14 +538,16 @@
       display: inline-grid;
       place-items: center;
       border-radius: 999px;
-      color: #ff4f97;
-      background: #fff;
+      color: #fff;
+      background: linear-gradient(135deg, #ff71b1, #ff3a8d);
+      box-shadow: 0 8px 18px rgba(123, 24, 80, 0.16);
     }
 
     .chat-main {
       min-width: 0;
       display: grid;
       grid-template-rows: auto 1fr auto;
+      background: linear-gradient(180deg, rgba(255, 251, 252, 0.8), rgba(255, 244, 248, 0.72));
     }
 
     .chat-topbar {
@@ -496,11 +556,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 18px 20px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent),
-        linear-gradient(135deg, #ff94c7, #ff5da2);
-      color: #fff;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(16px);
+      color: var(--text);
+      box-shadow: inset 0 -1px 0 rgba(227, 162, 194, 0.18);
     }
 
     .chat-profile {
@@ -519,14 +579,9 @@
       border-radius: 999px;
       font-size: 1.4rem;
       font-weight: 900;
-      color: #ff4f97;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 10px 24px rgba(124, 29, 81, 0.24);
-    }
-
-    .chat-profile-avatar.self {
       color: #fff;
-      background: linear-gradient(135deg, #ff73b3, #ff2d86);
+      background: linear-gradient(135deg, #ff71b1, #ff3a8d);
+      box-shadow: 0 12px 24px rgba(124, 29, 81, 0.18);
     }
 
     .chat-profile-meta {
@@ -543,7 +598,7 @@
       margin-top: 4px;
       font-size: 0.82rem;
       font-weight: 800;
-      opacity: 0.9;
+      color: rgba(90, 24, 64, 0.62);
     }
 
     .chat-mode-value {
@@ -552,40 +607,62 @@
       margin-left: 6px;
       padding: 4px 10px;
       border-radius: 999px;
-      color: #ff4f97;
-      background: rgba(255, 255, 255, 0.96);
+      color: #d64587;
+      background: rgba(255, 93, 162, 0.08);
     }
 
     .chat-status {
-      margin-top: 4px;
-      font-size: 0.88rem;
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
       font-weight: 700;
-      opacity: 0.88;
+      color: rgba(90, 24, 64, 0.56);
+    }
+
+    .chat-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #39d98a;
+      box-shadow: 0 0 0 4px rgba(57, 217, 138, 0.16);
+    }
+
+    .chat-status-dot.pending {
+      background: #ffbd59;
+      box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.18);
+    }
+
+    .chat-status-dot.offline {
+      background: #cfa7ba;
+      box-shadow: 0 0 0 4px rgba(207, 167, 186, 0.18);
     }
 
     .chat-controls {
       display: inline-flex;
       flex-wrap: wrap;
-      gap: 8px;
-      padding: 6px;
+      gap: 6px;
+      padding: 4px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.22);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      background: rgba(255, 93, 162, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 93, 162, 0.12);
     }
 
     .chat-role {
-      padding: 10px 16px;
+      padding: 10px 14px;
       border-radius: 999px;
       border: 0;
-      color: rgba(255, 255, 255, 0.86);
+      color: rgba(90, 24, 64, 0.64);
       background: transparent;
       font-weight: 800;
       box-shadow: none;
     }
 
     .chat-role.active {
-      color: #ff4f97;
-      background: rgba(255, 255, 255, 0.96);
+      color: #d64587;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 10px 24px rgba(123, 24, 80, 0.08);
     }
 
     .chat-topbar-actions {
@@ -594,82 +671,131 @@
       gap: 8px;
     }
 
-    .chat-icon-button {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      box-shadow: none;
-      font-size: 1rem;
-    }
-
     .chat-body {
       position: relative;
-      padding: 14px;
+      padding: 18px 18px 14px;
       background:
-        radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.42), transparent 16%),
-        radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.3), transparent 18%),
-        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.22), transparent 16%),
-        linear-gradient(180deg, rgba(255, 244, 249, 0.96), rgba(255, 229, 239, 0.94));
+        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.7), transparent 16%),
+        radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.4), transparent 18%),
+        linear-gradient(180deg, rgba(255, 248, 250, 0.98), rgba(255, 237, 244, 0.96));
+    }
+
+    .chat-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(226, 155, 192, 0.12) 0.8px, transparent 0.8px),
+        radial-gradient(rgba(255, 255, 255, 0.38) 1.4px, transparent 1.4px);
+      background-size: 24px 24px, 80px 80px;
+      background-position: 0 0, 18px 18px;
+      pointer-events: none;
     }
 
     .chat-date-chip {
       width: fit-content;
-      margin: 0 auto 12px;
-      padding: 7px 14px;
+      margin: 0 auto 14px;
+      padding: 8px 14px;
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 800;
       color: rgba(90, 24, 64, 0.78);
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 8px 18px rgba(123, 24, 80, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 22px rgba(123, 24, 80, 0.08);
+      position: relative;
+      z-index: 1;
     }
 
     .chat-window {
-      min-height: 320px;
+      min-height: 340px;
       height: 100%;
       overflow-y: auto;
-      padding: 6px 4px 10px;
+      padding: 4px 2px 12px;
       display: grid;
-      gap: 10px;
+      gap: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chat-window::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-window::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(214, 69, 135, 0.24);
+    }
+
+    .chat-empty {
+      margin: auto;
+      padding: 18px 20px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: rgba(90, 24, 64, 0.62);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 14px 28px rgba(123, 24, 80, 0.06);
     }
 
     .chat-bubble {
-      max-width: min(84%, 470px);
+      max-width: min(76%, 520px);
       position: relative;
       display: grid;
+      gap: 4px;
+      margin-top: 6px;
+      animation: chat-bubble-in 180ms ease;
     }
 
     .chat-bubble.self {
       justify-self: end;
+      padding-right: 4px;
     }
 
     .chat-bubble.other {
       justify-self: start;
+      padding-left: 4px;
+    }
+
+    .chat-bubble.muted {
+      opacity: 0.28;
+    }
+
+    .chat-author {
+      display: block;
+      margin: 0 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: rgba(90, 24, 64, 0.48);
+    }
+
+    .chat-bubble.self .chat-author {
+      justify-self: end;
+      color: rgba(214, 69, 135, 0.76);
     }
 
     .chat-message-box {
       position: relative;
-      padding: 12px 14px 10px;
-      border-radius: 18px;
+      padding: 12px 14px 20px;
+      border-radius: 20px;
       font-size: 0.99rem;
       line-height: 1.4;
-      box-shadow: 0 12px 28px rgba(123, 24, 80, 0.1);
+      box-shadow: 0 14px 28px rgba(123, 24, 80, 0.08);
     }
 
     .chat-bubble.self .chat-message-box {
-      border-bottom-right-radius: 6px;
+      border-bottom-right-radius: 8px;
       color: #fff;
-      background: linear-gradient(135deg, #ff67aa, #ff3b8e);
+      background: linear-gradient(135deg, #ff6fae, #ff3a8d);
     }
 
     .chat-bubble.other .chat-message-box {
-      border-bottom-left-radius: 6px;
+      border-bottom-left-radius: 8px;
       color: #5a1840;
       background: rgba(255, 255, 255, 0.96);
+      box-shadow:
+        0 14px 28px rgba(123, 24, 80, 0.06),
+        inset 0 0 0 1px rgba(227, 162, 194, 0.14);
     }
 
     .chat-bubble.self .chat-message-box::after,
@@ -693,13 +819,17 @@
       background: rgba(255, 255, 255, 0.96);
     }
 
-    .chat-author {
-      display: none;
-    }
-
     .chat-text {
       white-space: pre-wrap;
       word-break: break-word;
+      margin-right: 26px;
+    }
+
+    .chat-text mark {
+      padding: 0 2px;
+      border-radius: 5px;
+      background: rgba(255, 228, 112, 0.82);
+      color: inherit;
     }
 
     .chat-meta {
@@ -707,7 +837,9 @@
       align-items: center;
       justify-content: flex-end;
       gap: 6px;
-      margin-top: 6px;
+      position: absolute;
+      right: 12px;
+      bottom: 8px;
       font-size: 0.74rem;
       font-weight: 800;
       opacity: 0.72;
@@ -723,131 +855,47 @@
     }
 
     .chat-composer {
-      padding: 12px 14px 14px;
-      background: linear-gradient(180deg, rgba(255, 239, 246, 0.96), rgba(255, 229, 240, 0.98));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66);
-    }
-
-    .chat-share-box {
-      margin-top: 16px;
       padding: 14px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.16);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
-    }
-
-    .chat-share-title {
-      font-size: 0.88rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .chat-share-text {
-      margin-top: 6px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.35;
-    }
-
-    .chat-share-actions {
       display: grid;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+    }
+
+    .chat-suggestion-row,
+    .chat-emoji-row {
+      display: flex;
+      flex-wrap: nowrap;
       gap: 8px;
-      margin-top: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
 
-    .chat-share-button {
-      padding: 11px 12px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.92);
-      color: #ff4f97;
-      font-size: 0.88rem;
-      font-weight: 900;
-      box-shadow: none;
-    }
-
-    .chat-share-room,
-    .chat-share-feedback {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.4;
-    }
-
-    .chat-share-feedback {
-      min-height: 1.4em;
-    }
-
-    .chat-role-picker {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: rgba(90, 24, 64, 0.34);
-      backdrop-filter: blur(6px);
-    }
-
-    .chat-role-picker[hidden] {
+    .chat-suggestion-row::-webkit-scrollbar,
+    .chat-emoji-row::-webkit-scrollbar {
       display: none;
     }
 
-    .chat-role-card {
-      width: min(100%, 360px);
-      padding: 24px;
-      border-radius: 26px;
-      background: linear-gradient(160deg, rgba(255, 248, 252, 0.98), rgba(255, 224, 239, 0.96));
-      box-shadow: 0 28px 70px rgba(90, 24, 64, 0.24);
-      text-align: center;
-    }
-
-    .chat-role-title {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #5a1840;
-    }
-
-    .chat-role-text {
-      margin-top: 10px;
-      font-size: 0.96rem;
-      font-weight: 700;
-      color: rgba(90, 24, 64, 0.82);
-      line-height: 1.45;
-    }
-
-    .chat-role-actions {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .chat-role-pick {
-      border-radius: 18px;
-      padding: 14px 16px;
-      font-size: 1rem;
-      font-weight: 900;
-    }
-
-    .chat-role-pick.ksyushka {
-      background: linear-gradient(135deg, #ff73b3, #ff3b8e);
-    }
-
-    .chat-role-pick.kotenok {
-      background: linear-gradient(135deg, #ff9ccd, #ff63a7);
+    .chat-suggestion {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: #8d2d64;
+      background: rgba(255, 93, 162, 0.08);
+      box-shadow: none;
+      font-size: 0.84rem;
+      font-weight: 800;
     }
 
     .chat-emoji-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
+      padding-bottom: 2px;
     }
 
     .chat-emoji {
-      padding: 10px 12px;
+      flex: 0 0 auto;
+      min-width: 44px;
+      padding: 10px 0;
       border-radius: 14px;
       color: #5a1840;
       background: rgba(255, 255, 255, 0.94);
@@ -862,18 +910,34 @@
       align-items: end;
     }
 
+    .chat-input-shell {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 208, 228, 0.95),
+        0 14px 24px rgba(123, 24, 80, 0.06);
+    }
+
     .chat-input {
       width: 100%;
-      min-height: 58px;
+      min-height: 52px;
       max-height: 140px;
-      padding: 16px 18px;
+      padding: 8px 10px;
       border: 0;
-      border-radius: 22px;
+      border-radius: 18px;
       font: inherit;
       color: #5a1840;
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: inset 0 0 0 1px rgba(255, 208, 228, 0.95);
+      background: transparent;
+      box-shadow: none;
       resize: none;
+    }
+
+    .chat-input:focus {
+      outline: none;
     }
 
     .chat-input::placeholder {
@@ -881,12 +945,28 @@
     }
 
     .chat-send {
-      min-width: 62px;
+      min-width: 58px;
       min-height: 58px;
-      padding: 16px 20px;
-      border-radius: 20px;
+      padding: 0;
+      border-radius: 18px;
       align-self: end;
-      background: linear-gradient(135deg, #ff5da2, #ff2d86);
+      font-size: 1.18rem;
+      background: linear-gradient(135deg, #ff6fae, #ff3a8d);
+    }
+
+    .chat-send:disabled {
+      cursor: default;
+      opacity: 0.55;
+      filter: saturate(0.7);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .chat-draft-status {
+      min-height: 1.1em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(90, 24, 64, 0.5);
     }
 
     .game-header {
@@ -1051,150 +1131,6 @@
       pointer-events: none;
     }
 
-    .memory-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .memory-board {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .memory-card {
-      aspect-ratio: 1 / 1;
-      min-height: 138px;
-      position: relative;
-      padding: 0;
-      border: 0;
-      border-radius: 24px;
-      perspective: 1600px;
-      overflow: hidden;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .memory-card-flip {
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      transform: rotateY(0deg);
-      transform-origin: left center;
-      transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.22, 0.8, 0.2, 1), box-shadow 0.24s ease;
-      box-shadow: 0 18px 34px rgba(123, 24, 80, 0.16);
-    }
-
-    .memory-card.revealed .memory-card-flip,
-    .memory-card.matched .memory-card-flip {
-      transform: rotateY(-180deg);
-    }
-
-    .memory-card-face {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 24px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-
-    .memory-card-front {
-      background:
-        radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.34), transparent 18%),
-        radial-gradient(circle at 78% 30%, rgba(255, 255, 255, 0.18), transparent 18%),
-        linear-gradient(160deg, #ff73b3, #ff4f97);
-      color: rgba(255, 255, 255, 0.96);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-    }
-
-    .memory-card-front-mark {
-      width: 72px;
-      height: 72px;
-      display: grid;
-      place-items: center;
-      border-radius: 22px;
-      font-size: 2.3rem;
-      font-weight: 900;
-      background: rgba(255, 255, 255, 0.18);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-    }
-
-    .memory-card-back {
-      padding: 12px;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(255, 230, 241, 0.94));
-      color: #a12666;
-      transform: rotateY(180deg);
-    }
-
-    .memory-card-figure {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(255, 246, 251, 0.95), rgba(255, 233, 242, 0.9));
-      box-shadow: inset 0 0 0 1px rgba(255, 185, 217, 0.44);
-    }
-
-    .memory-card-label {
-      display: block;
-      text-align: center;
-      font-size: 0.88rem;
-      font-weight: 900;
-      color: #8e225f;
-      line-height: 1.2;
-      letter-spacing: 0.02em;
-    }
-
-    .memory-card-emoji {
-      width: 86px;
-      height: 86px;
-      display: grid;
-      place-items: center;
-      border-radius: 24px;
-      font-size: 3rem;
-      background: rgba(255, 132, 189, 0.16);
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 161, 204, 0.34),
-        0 12px 20px rgba(123, 24, 80, 0.08);
-    }
-
-    .memory-card.revealed,
-    .memory-card.matched {
-      transform: translateY(-2px) scale(1.01);
-    }
-
-    .memory-card.matched .memory-card-flip {
-      box-shadow: 0 18px 36px rgba(255, 93, 162, 0.24);
-    }
-
-    .memory-card.matched .memory-card-back {
-      background: linear-gradient(160deg, rgba(255, 253, 242, 0.99), rgba(255, 233, 243, 0.95));
-    }
-
-    .memory-card.matched .memory-card-label {
-      color: #c03b7d;
-    }
-
-    .memory-status {
-      margin-top: 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
     .heart-trail {
       position: fixed;
       left: 0;
@@ -1217,6 +1153,18 @@
       100% {
         transform: translate(-50%, -95px) scale(1.35) rotate(12deg);
         opacity: 0;
+      }
+    }
+
+    @keyframes chat-bubble-in {
+      0% {
+        transform: translateY(8px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
 
@@ -1246,9 +1194,7 @@
       .chat-role,
       .chat-emoji,
       .chat-send,
-      .chat-sidebar-edit,
-      .chat-icon-button,
-      .memory-card {
+      .chat-suggestion {
         width: auto;
       }
 
@@ -1284,19 +1230,6 @@
         justify-self: end;
       }
 
-      .memory-board {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .memory-card {
-        min-height: 110px;
-      }
-
-      .memory-card-emoji {
-        width: 72px;
-        height: 72px;
-        font-size: 2.5rem;
-      }
     }
   </style>
 </head>
@@ -1322,7 +1255,6 @@
             <div class="hero-actions">
               <button class="chat-toggle" id="chat-toggle-button" type="button">К чату</button>
               <button class="game-toggle" id="game-toggle-button" type="button">К корзинке</button>
-              <button class="memory-toggle" id="memory-toggle-button" type="button">К карточкам</button>
             </div>
           </div>
         </div>
@@ -1347,7 +1279,7 @@
             <div class="message" id="message">Выбери кнопку</div>
             <div class="hint" id="hint">После нажатия здесь появится выбранное настроение.</div>
           </div>
-          <video class="video-player" id="video-player" controls playsinline hidden></video>
+          <video class="video-player" id="video-player" controls autoplay loop playsinline preload="auto" hidden></video>
           <div class="video-actions">
             <button class="gift-kinder video-trigger" id="gift-kinder-button" type="button" data-title="Подарить 2 киндера" data-text="Подарить 2 киндера." data-hint="Очень добрый и сладкий подарок." data-video="kinder-video.webm" hidden>Подарить 2 киндера</button>
           </div>
@@ -1358,20 +1290,23 @@
         <div class="section-head">
           <span class="section-kicker">Чат</span>
           <h2 class="section-title">Диалог в отдельном месте</h2>
-          <p class="section-note">Сообщения сохраняются в Supabase. Чтобы второй человек открыл ту же переписку с другого браузера или устройства, ему нужна именно ссылка с этой же комнатой `room`.</p>
         </div>
 
         <section class="chat-section" id="chat-section">
           <div class="chat-shell">
           <aside class="chat-sidebar">
             <div class="chat-sidebar-head">
-              <div class="chat-sidebar-title">Сообщения</div>
-              <button class="chat-sidebar-edit" type="button">✎</button>
+              <div class="chat-sidebar-title">Чаты</div>
+              <div class="chat-sidebar-subtitle">Личный диалог</div>
             </div>
-            <input class="chat-search" type="text" placeholder="Поиск" readonly>
+            <label class="chat-search-wrap" aria-label="Поиск по сообщениям">
+              <span class="chat-search-icon">⌕</span>
+              <input class="chat-search" id="chat-search" type="text" placeholder="Поиск по сообщениям">
+              <button class="chat-search-clear" id="chat-search-clear" type="button" hidden aria-label="Очистить поиск">×</button>
+            </label>
 
             <div class="chat-list">
-              <button class="chat-list-item active" type="button">
+              <button class="chat-list-item active" id="chat-list-item" type="button">
                 <div class="chat-list-avatar">К</div>
                 <div class="chat-list-content">
                   <div class="chat-list-name">Ксюшка и Котенок</div>
@@ -1379,21 +1314,9 @@
                 </div>
                 <div class="chat-list-meta">
                   <span id="chat-list-time">сейчас</span>
-                  <span class="chat-list-badge" id="chat-list-badge">1</span>
+                  <span class="chat-list-badge" id="chat-list-badge" hidden>0</span>
                 </div>
               </button>
-            </div>
-
-            <div class="chat-share-box">
-              <div class="chat-share-title">Твоя роль</div>
-              <div class="chat-share-text">Выбери, кто ты в этом браузере. Ниже можно скопировать отдельную ссылку для `Ксюшки` и `Котенка`, чтобы открыть этот же диалог с другого устройства.</div>
-              <div class="chat-share-room">Комната: <span id="chat-room-code">...</span></div>
-              <div class="chat-share-actions">
-                <button class="chat-share-button" id="change-role-button" type="button">Сменить роль</button>
-                <button class="chat-share-button" id="copy-kotenok-link-button" type="button">Скопировать ссылку для Котенка</button>
-                <button class="chat-share-button" id="copy-ksyushka-link-button" type="button">Скопировать ссылку для Ксюшки</button>
-              </div>
-              <div class="chat-share-feedback" id="chat-share-feedback"></div>
             </div>
           </aside>
 
@@ -1404,25 +1327,30 @@
                 <div class="chat-profile-meta">
                   <div class="chat-profile-name">Ксюшка и Котенок</div>
                   <div class="chat-mode">Пишешь как: <span class="chat-mode-value" id="chat-current-author">Ксюшка</span></div>
-                  <div class="chat-status" id="chat-status">Подключение к чату...</div>
+                  <div class="chat-status"><span class="chat-status-dot"></span><span id="chat-status">Подключение к чату...</span></div>
                 </div>
               </div>
 
-              <div class="chat-topbar-actions">
-                <div class="chat-controls">
-                  <button class="chat-role active" id="chat-role-self" type="button">Котенок</button>
+                <div class="chat-topbar-actions">
+                  <div class="chat-controls">
+                  <button class="chat-role" id="chat-role-self" type="button">Котенок</button>
                   <button class="chat-role" id="chat-role-other" type="button">Ксюшка</button>
+                  </div>
                 </div>
-                <button class="chat-icon-button" id="copy-current-link-button" type="button">🔗</button>
               </div>
-            </div>
 
             <div class="chat-body">
-              <div class="chat-date-chip">Сегодня</div>
+              <div class="chat-date-chip" id="chat-date-chip">Сегодня</div>
               <div class="chat-window" id="chat-window"></div>
             </div>
 
             <div class="chat-composer">
+              <div class="chat-suggestion-row">
+                <button class="chat-suggestion" type="button" data-text="Скучаю по тебе 💖">Скучаю 💖</button>
+                <button class="chat-suggestion" type="button" data-text="Скоро буду">Скоро буду</button>
+                <button class="chat-suggestion" type="button" data-text="Где ты?">Где ты?</button>
+                <button class="chat-suggestion" type="button" data-text="Хочу киндер 🥚">Хочу киндер 🥚</button>
+              </div>
               <div class="chat-emoji-row">
                 <button class="chat-emoji" type="button" data-emoji="💖">💖</button>
                 <button class="chat-emoji" type="button" data-emoji="😘">😘</button>
@@ -1440,20 +1368,12 @@
               </div>
 
               <form class="chat-form" id="chat-form">
-                <textarea class="chat-input" id="chat-input" placeholder="Сообщение"></textarea>
-                <button class="chat-send" type="submit">➤</button>
+                <div class="chat-input-shell">
+                  <textarea class="chat-input" id="chat-input" placeholder="Сообщение"></textarea>
+                </div>
+                <button class="chat-send" id="chat-send" type="submit" disabled aria-label="Отправить сообщение">➤</button>
               </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat-role-picker" id="chat-role-picker" hidden>
-          <div class="chat-role-card">
-            <h3 class="chat-role-title">Кто ты в чате?</h3>
-            <div class="chat-role-text">Выбери роль. Она сохранится только в этом браузере. У тебя можно поставить `Ксюшка`, а у него `Котенок`.</div>
-            <div class="chat-role-actions">
-              <button class="chat-role-pick ksyushka" id="pick-ksyushka-button" type="button">Я Ксюшка</button>
-              <button class="chat-role-pick kotenok" id="pick-kotenok-button" type="button">Я Котенок</button>
+              <div class="chat-draft-status" id="chat-draft-status"></div>
             </div>
           </div>
         </div>
@@ -1464,7 +1384,7 @@
         <div class="section-head">
           <span class="section-kicker">Игры</span>
           <h2 class="section-title">Игровой блок вынесен отдельно</h2>
-          <p class="section-note">Обе игры собраны в одном разделе ниже, чтобы главная не выглядела как одна длинная смесь из кнопок, чата и мини-игр.</p>
+          <p class="section-note">Игровой блок вынесен отдельно, чтобы главная не выглядела как одна длинная смесь из кнопок, чата и мини-игр.</p>
         </div>
 
         <section class="game" id="game-section">
@@ -1493,24 +1413,6 @@
             <div class="game-status" id="game-status">Нажми «Старт игры», потом води мышкой по полю и собирай хорошие предметы корзинкой.</div>
             <div class="game-basket" id="game-basket">🧺</div>
           </div>
-        </section>
-
-        <section class="memory-game" id="memory-game-section">
-          <div class="game-header">
-            <div>
-              <h2 class="game-title">Игра: карточки с эмодзи</h2>
-              <p class="game-subtitle">Запомни эмодзи, открой одинаковые пары и собери весь маленький набор.</p>
-            </div>
-            <button class="game-start" id="memory-reset-button" type="button">Новая раскладка</button>
-          </div>
-
-          <div class="memory-stats">
-            <div class="game-pill" id="memory-moves">Ходы: 0</div>
-            <div class="game-pill" id="memory-pairs">Пары: 0 / 6</div>
-          </div>
-
-          <div class="memory-board" id="memory-board"></div>
-          <div class="memory-status" id="memory-status">Сначала посмотри на эмодзи, потом найди одинаковые пары.</div>
         </section>
       </section>
     </div>
@@ -1549,32 +1451,23 @@
     const chatRoleOther = document.getElementById("chat-role-other");
     const chatWindow = document.getElementById("chat-window");
     const chatStatus = document.getElementById("chat-status");
+    const chatStatusDot = document.querySelector(".chat-status-dot");
     const chatCurrentAuthor = document.getElementById("chat-current-author");
     const chatListPreview = document.getElementById("chat-list-preview");
     const chatListTime = document.getElementById("chat-list-time");
     const chatListBadge = document.getElementById("chat-list-badge");
-    const chatSidebarEditButton = document.querySelector(".chat-sidebar-edit");
-    const changeRoleButton = document.getElementById("change-role-button");
-    const chatRolePicker = document.getElementById("chat-role-picker");
-    const pickKsyushkaButton = document.getElementById("pick-ksyushka-button");
-    const pickKotenokButton = document.getElementById("pick-kotenok-button");
-    const chatRoomCode = document.getElementById("chat-room-code");
-    const chatShareFeedback = document.getElementById("chat-share-feedback");
-    const copyKotenokLinkButton = document.getElementById("copy-kotenok-link-button");
-    const copyKsyushkaLinkButton = document.getElementById("copy-ksyushka-link-button");
-    const copyCurrentLinkButton = document.getElementById("copy-current-link-button");
+    const chatListItem = document.getElementById("chat-list-item");
+    const chatSearch = document.getElementById("chat-search");
+    const chatSearchClear = document.getElementById("chat-search-clear");
+    const chatDateChip = document.getElementById("chat-date-chip");
     const chatForm = document.getElementById("chat-form");
     const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
     const chatEmojiButtons = Array.from(document.querySelectorAll(".chat-emoji"));
+    const chatSuggestionButtons = Array.from(document.querySelectorAll(".chat-suggestion"));
+    const chatDraftStatus = document.getElementById("chat-draft-status");
     const gameToggleButton = document.getElementById("game-toggle-button");
     const gameSection = document.getElementById("game-section");
-    const memoryToggleButton = document.getElementById("memory-toggle-button");
-    const memoryGameSection = document.getElementById("memory-game-section");
-    const memoryBoard = document.getElementById("memory-board");
-    const memoryResetButton = document.getElementById("memory-reset-button");
-    const memoryMoves = document.getElementById("memory-moves");
-    const memoryPairs = document.getElementById("memory-pairs");
-    const memoryStatus = document.getElementById("memory-status");
     let lastHeartTime = 0;
     let currentScore = 0;
     let timeLeft = 20;
@@ -1586,18 +1479,14 @@
     let fallingItems = [];
     let lastFrameTime = 0;
     let itemIdCounter = 0;
-    let memoryCards = [];
-    let memoryOpened = [];
-    let memoryMovesCount = 0;
-    let memoryPairsFound = 0;
-    let memoryLocked = false;
-    let memoryPreviewTimerId = null;
     let currentChatAuthor = "Ксюшка";
     let chatMessages = [];
     let chatPollTimerId = null;
     let lastChatSnapshot = "";
     let chatBootstrapped = false;
     let lastIncomingStamp = "";
+    let chatSearchQuery = "";
+    let lastReadStamp = "";
 
     const goodItems = [
       { symbol: "🍟", points: 2, label: "картошка фри" },
@@ -1612,43 +1501,16 @@
       { symbol: "💔", label: "разбитое сердечко" }
     ];
 
-    const memoryThemes = [
-      {
-        key: "kinder",
-        title: "Киндер",
-        emoji: "🥚"
-      },
-      {
-        key: "fries",
-        title: "Картошка фри",
-        emoji: "🍟"
-      },
-      {
-        key: "strawberry",
-        title: "Клубника",
-        emoji: "🍓"
-      },
-      {
-        key: "cat",
-        title: "Котенок",
-        emoji: "🐱"
-      },
-      {
-        key: "flower",
-        title: "Цветочек",
-        emoji: "🌸"
-      },
-      {
-        key: "heart",
-        title: "Сердечко",
-        emoji: "💖"
-      }
-    ];
     const SUPABASE_URL = "https://xrpbsfruduundbtsjjqy.supabase.co";
     const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Qfwx4XvQg--K9uGVGX1pSw_XeysV6IR";
     const CHAT_ROOM_STORAGE_KEY = "ksyushka-chat-room";
+    const CHAT_DRAFT_STORAGE_KEY = "ksyushka-chat-draft";
+    const CHAT_READ_STORAGE_KEY = "ksyushka-chat-read";
     const CHAT_POLL_MS = 2000;
     const chatRoomId = getChatRoomId();
+
+    videoPlayer.autoplay = true;
+    videoPlayer.loop = true;
 
     function sanitizeChatRoom(value) {
       return String(value || "")
@@ -1717,6 +1579,50 @@
       return "пока нет";
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function escapeRegExp(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function formatChatDay(value) {
+      if (!value) {
+        return "Сегодня";
+      }
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return "Сегодня";
+      }
+
+      const today = new Date();
+      const isToday = date.toDateString() === today.toDateString();
+
+      if (isToday) {
+        return "Сегодня";
+      }
+
+      const yesterday = new Date();
+      yesterday.setDate(today.getDate() - 1);
+
+      if (date.toDateString() === yesterday.toDateString()) {
+        return "Вчера";
+      }
+
+      return date.toLocaleDateString("ru-RU", {
+        day: "numeric",
+        month: "long"
+      });
+    }
+
     function updateGameProgress() {
       gameScore.textContent = `Очки: ${currentScore}`;
       gameLevel.textContent = `Уровень: ${getLevel(currentScore)}`;
@@ -1756,26 +1662,14 @@
       chatCurrentAuthor.textContent = normalizedAuthor;
       chatInput.placeholder = normalizedAuthor === "Котенок" ? "Напиши сообщение ксюшке" : "Напиши сообщение котенку";
       window.localStorage.setItem("ksyushka-chat-author", normalizedAuthor);
+      loadChatReadStamp();
+      loadChatDraft();
 
       if (chatMessages.length > 0) {
         renderChatMessages();
+      } else {
+        updateChatList();
       }
-    }
-
-    function hasExplicitChatRole() {
-      const params = new URLSearchParams(window.location.search);
-      const role = params.get("me");
-      const savedAuthor = window.localStorage.getItem("ksyushka-chat-author");
-
-      return role === "ksyushka" || role === "kotenok" || role === "you" || savedAuthor === "Ксюшка" || savedAuthor === "Котенок" || savedAuthor === "Ты";
-    }
-
-    function openRolePicker() {
-      chatRolePicker.hidden = false;
-    }
-
-    function closeRolePicker() {
-      chatRolePicker.hidden = true;
     }
 
     function getInitialChatAuthor() {
@@ -1806,65 +1700,130 @@
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    function setChatShareFeedback(text, isError = false) {
-      chatShareFeedback.textContent = text;
-      chatShareFeedback.style.color = isError ? "#fff2a8" : "rgba(255, 255, 255, 0.92)";
+    function getChatDraftKey(author = currentChatAuthor) {
+      return `${CHAT_DRAFT_STORAGE_KEY}:${chatRoomId}:${author}`;
     }
 
-    function buildChatLink(role) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("room", chatRoomId);
-      url.searchParams.set("me", role === "Ксюшка" ? "ksyushka" : "kotenok");
-      url.hash = "chat-wrapper";
-      return url.toString();
+    function getChatReadKey(author = currentChatAuthor) {
+      return `${CHAT_READ_STORAGE_KEY}:${chatRoomId}:${author}`;
     }
 
-    async function copyText(value) {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(value);
+    function updateDraftStatus() {
+      chatDraftStatus.textContent = chatInput.value.trim() ? "Черновик сохранен" : "";
+    }
+
+    function updateSendState() {
+      chatSend.disabled = !chatInput.value.trim();
+    }
+
+    function updateSearchState() {
+      chatSearchClear.hidden = !chatSearch.value.trim();
+    }
+
+    function loadChatDraft() {
+      chatInput.value = window.localStorage.getItem(getChatDraftKey()) || "";
+      resizeChatInput();
+      updateDraftStatus();
+      updateSendState();
+    }
+
+    function saveChatDraft() {
+      window.localStorage.setItem(getChatDraftKey(), chatInput.value);
+      updateDraftStatus();
+      updateSendState();
+      updateChatList();
+    }
+
+    function clearChatDraft() {
+      window.localStorage.removeItem(getChatDraftKey());
+      updateDraftStatus();
+      updateSendState();
+      updateChatList();
+    }
+
+    function loadChatReadStamp() {
+      lastReadStamp = window.localStorage.getItem(getChatReadKey()) || "";
+    }
+
+    function getUnreadCount() {
+      return chatMessages.filter((item) => item.author !== currentChatAuthor && (!lastReadStamp || item.createdAt > lastReadStamp)).length;
+    }
+
+    function isChatInView() {
+      const rect = chatSection.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2;
+    }
+
+    function markChatRead() {
+      const latestIncoming = chatMessages.filter((item) => item.author !== currentChatAuthor).at(-1);
+
+      if (!latestIncoming) {
+        updateChatList();
         return;
       }
 
-      const helper = document.createElement("textarea");
-      helper.value = value;
-      helper.setAttribute("readonly", "");
-      helper.style.position = "absolute";
-      helper.style.left = "-9999px";
-      document.body.appendChild(helper);
-      helper.select();
-      document.execCommand("copy");
-      helper.remove();
+      if (!lastReadStamp || latestIncoming.createdAt > lastReadStamp) {
+        lastReadStamp = latestIncoming.createdAt;
+        window.localStorage.setItem(getChatReadKey(), lastReadStamp);
+      }
+
+      updateChatList();
     }
 
-    async function copyChatLink(role) {
-      const link = buildChatLink(role);
+    function highlightChatText(text) {
+      const escapedText = escapeHtml(text).replace(/\n/g, "<br>");
 
-      try {
-        await copyText(link);
-        if (window.location.protocol === "file:") {
-          setChatShareFeedback("Ссылка скопирована, но для второго устройства сайт нужно открыть по https, а не как local file.", true);
-          return;
-        }
-
-        setChatShareFeedback(`Ссылка для ${role.toLowerCase()} скопирована.`);
-      } catch (error) {
-        setChatShareFeedback("Не получилось скопировать ссылку.", true);
+      if (!chatSearchQuery) {
+        return escapedText;
       }
+
+      const regex = new RegExp(`(${escapeRegExp(chatSearchQuery)})`, "ig");
+      return escapedText.replace(regex, "<mark>$1</mark>");
+    }
+
+    function updateChatDateChip(visibleCount = chatMessages.length) {
+      if (chatSearchQuery) {
+        chatDateChip.textContent = `Найдено: ${visibleCount}`;
+        return;
+      }
+
+      const lastMessage = chatMessages[chatMessages.length - 1];
+      chatDateChip.textContent = formatChatDay(lastMessage?.createdAt);
+    }
+
+    function setChatStatus(text, tone = "online") {
+      chatStatus.textContent = text;
+      chatStatusDot.classList.toggle("pending", tone === "pending");
+      chatStatusDot.classList.toggle("offline", tone === "offline");
     }
 
     function updateChatList() {
       const lastMessage = chatMessages[chatMessages.length - 1];
+      const draft = (window.localStorage.getItem(getChatDraftKey()) || "").trim();
+      const unreadCount = getUnreadCount();
+
+      chatListItem.classList.toggle("has-unread", unreadCount > 0);
+      chatListBadge.hidden = unreadCount === 0;
+      chatListBadge.textContent = String(unreadCount);
+
+      if (draft) {
+        chatListPreview.textContent = `Черновик: ${draft}`;
+        chatListPreview.classList.add("draft");
+        chatListTime.textContent = lastMessage ? formatChatTime(lastMessage.createdAt) || "сейчас" : "сейчас";
+        return;
+      }
+
+      chatListPreview.classList.remove("draft");
 
       if (!lastMessage) {
         chatListPreview.textContent = "Переписка пока пустая";
         chatListTime.textContent = "сейчас";
-        chatListBadge.textContent = "0";
         return;
       }
 
-      chatListPreview.textContent = `${normalizeChatAuthor(lastMessage.author)}: ${lastMessage.text}`;
+      const previewAuthor = lastMessage.author === currentChatAuthor ? "Вы" : normalizeChatAuthor(lastMessage.author);
+      chatListPreview.textContent = `${previewAuthor}: ${lastMessage.text}`;
       chatListTime.textContent = formatChatTime(lastMessage.createdAt) || "сейчас";
-      chatListBadge.textContent = String(chatMessages.filter((item) => normalizeChatAuthor(item.author) !== currentChatAuthor).length);
     }
 
     function playIncomingChatSound() {
@@ -1919,35 +1878,71 @@
     }
 
     function renderChatMessages() {
+      const visibleMessages = chatSearchQuery
+        ? chatMessages.filter((item) => item.text.toLowerCase().includes(chatSearchQuery.toLowerCase()))
+        : chatMessages;
+      const shouldStickToBottom = chatWindow.scrollHeight - chatWindow.scrollTop - chatWindow.clientHeight < 80;
+
       chatWindow.innerHTML = "";
 
-      chatMessages.forEach((messageItem) => {
+      if (visibleMessages.length === 0) {
+        const emptyState = document.createElement("div");
+
+        emptyState.className = "chat-empty";
+        emptyState.textContent = chatSearchQuery ? "Ничего не найдено" : "Сообщений пока нет.";
+        chatWindow.appendChild(emptyState);
+        updateChatDateChip(0);
+        updateChatList();
+        return;
+      }
+
+      visibleMessages.forEach((messageItem, index) => {
         const bubble = document.createElement("div");
+        const author = document.createElement("div");
         const messageBox = document.createElement("div");
         const text = document.createElement("div");
         const meta = document.createElement("div");
         const isSelf = messageItem.author === currentChatAuthor;
         const timeLabel = formatChatTime(messageItem.createdAt);
         const checks = isSelf && timeLabel ? " <span class=\"chat-checks\">✓✓</span>" : "";
+        const prevItem = visibleMessages[index - 1];
+        const shouldShowAuthor = !prevItem || prevItem.author !== messageItem.author;
 
         bubble.className = `chat-bubble ${isSelf ? "self" : "other"}`;
+        author.className = "chat-author";
+        author.textContent = isSelf ? "Вы" : messageItem.author;
         messageBox.className = "chat-message-box";
         text.className = "chat-text";
-        text.textContent = messageItem.text;
+        text.innerHTML = highlightChatText(messageItem.text);
         meta.className = "chat-meta";
         meta.innerHTML = `${timeLabel}${checks}`;
 
         messageBox.append(text, meta);
+
+        if (shouldShowAuthor) {
+          bubble.append(author);
+        }
+
         bubble.append(messageBox);
         chatWindow.appendChild(bubble);
       });
 
+      updateChatDateChip(visibleMessages.length);
       updateChatList();
-      chatWindow.scrollTop = chatWindow.scrollHeight;
+
+      if (shouldStickToBottom || visibleMessages[visibleMessages.length - 1]?.author === currentChatAuthor) {
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      if (!chatSearchQuery && isChatInView()) {
+        markChatRead();
+      }
     }
 
     async function loadChatMessages() {
-      chatStatus.textContent = "подключение...";
+      if (!chatBootstrapped) {
+        setChatStatus("подключение...", "pending");
+      }
 
       try {
         const response = await fetch(
@@ -1975,7 +1970,7 @@
         const snapshot = JSON.stringify(normalized);
 
         chatMessages = normalized;
-        chatStatus.textContent = "в сети";
+        setChatStatus("в сети", "online");
 
         if (snapshot !== lastChatSnapshot) {
           const latestIncoming = normalized.filter((item) => item.author !== currentChatAuthor).at(-1);
@@ -1993,7 +1988,7 @@
 
         chatBootstrapped = true;
       } catch (error) {
-        chatStatus.textContent = "нет связи";
+        setChatStatus("нет связи", "offline");
       }
     }
 
@@ -2002,10 +1997,10 @@
       const normalizedAuthor = normalizeChatAuthor(author);
 
       if (!cleaned) {
-        return;
+        return false;
       }
 
-      chatStatus.textContent = "отправка...";
+      setChatStatus("отправка...", "pending");
 
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/messages`, {
@@ -2027,10 +2022,12 @@
           throw new Error(`HTTP ${response.status}`);
         }
 
-        chatStatus.textContent = "в сети";
+        setChatStatus("в сети", "online");
         await loadChatMessages();
+        return true;
       } catch (error) {
-        chatStatus.textContent = "ошибка отправки";
+        setChatStatus("ошибка отправки", "offline");
+        return false;
       }
     }
 
@@ -2039,6 +2036,19 @@
       chatPollTimerId = window.setInterval(() => {
         loadChatMessages();
       }, CHAT_POLL_MS);
+    }
+
+    async function submitChatMessage() {
+      const sent = await addChatMessage(currentChatAuthor, chatInput.value);
+
+      if (!sent) {
+        return;
+      }
+
+      chatInput.value = "";
+      clearChatDraft();
+      resizeChatInput();
+      chatInput.focus();
     }
 
     function shuffleArray(items) {
@@ -2052,150 +2062,6 @@
       }
 
       return copy;
-    }
-
-    function updateMemoryStats() {
-      memoryMoves.textContent = `Ходы: ${memoryMovesCount}`;
-      memoryPairs.textContent = `Пары: ${memoryPairsFound} / ${memoryThemes.length}`;
-    }
-
-    function renderMemoryBoard() {
-      memoryBoard.innerHTML = "";
-
-      memoryCards.forEach((card) => {
-        const button = document.createElement("button");
-        const flip = document.createElement("span");
-        const front = document.createElement("span");
-        const back = document.createElement("span");
-        const frontMark = document.createElement("span");
-        const figure = document.createElement("span");
-        const emoji = document.createElement("span");
-        const label = document.createElement("span");
-
-        button.className = "memory-card";
-        button.type = "button";
-        button.dataset.id = card.id;
-        button.setAttribute("aria-label", `карточка ${card.title}`);
-
-        flip.className = "memory-card-flip";
-        front.className = "memory-card-face memory-card-front";
-        frontMark.className = "memory-card-front-mark";
-        frontMark.textContent = "✦";
-        back.className = "memory-card-face memory-card-back";
-        figure.className = "memory-card-figure";
-        emoji.className = "memory-card-emoji";
-        emoji.textContent = card.emoji;
-        label.className = "memory-card-label";
-        label.textContent = card.title;
-
-        front.append(frontMark);
-        figure.append(emoji, label);
-        back.append(figure);
-        flip.append(front, back);
-        button.appendChild(flip);
-
-        if (card.revealed) {
-          button.classList.add("revealed");
-        }
-
-        if (card.matched) {
-          button.classList.add("matched");
-          button.disabled = true;
-          button.setAttribute("aria-label", `${card.title} найдена`);
-        }
-
-        memoryBoard.appendChild(button);
-      });
-    }
-
-    function resetMemoryGame() {
-      window.clearTimeout(memoryPreviewTimerId);
-      memoryCards = shuffleArray(
-        memoryThemes.flatMap((theme) => ([
-          { id: `${theme.key}-a`, key: theme.key, title: theme.title, emoji: theme.emoji, revealed: true, matched: false },
-          { id: `${theme.key}-b`, key: theme.key, title: theme.title, emoji: theme.emoji, revealed: true, matched: false }
-        ]))
-      );
-      memoryOpened = [];
-      memoryMovesCount = 0;
-      memoryPairsFound = 0;
-      memoryLocked = true;
-      memoryStatus.textContent = "Смотри внимательно: эмодзи открыты всего на несколько секунд.";
-      updateMemoryStats();
-      renderMemoryBoard();
-
-      memoryPreviewTimerId = window.setTimeout(() => {
-        memoryCards.forEach((card) => {
-          if (!card.matched) {
-            card.revealed = false;
-          }
-        });
-        memoryLocked = false;
-        memoryStatus.textContent = "Поехали. Открывай карточки и ищи одинаковые эмодзи.";
-        renderMemoryBoard();
-      }, 2600);
-    }
-
-    function finishMemoryGame() {
-      const resultText = memoryMovesCount <= 8
-        ? "Идеально."
-        : memoryMovesCount <= 11
-          ? "Очень хорошо."
-          : "Альбом собран.";
-      memoryStatus.textContent = `${resultText} Ты нашел все пары за ${memoryMovesCount} ходов.`;
-    }
-
-    function revealMemoryCard(cardId) {
-      if (memoryLocked) {
-        return;
-      }
-
-      const card = memoryCards.find((item) => item.id === cardId);
-
-      if (!card || card.revealed || card.matched) {
-        return;
-      }
-
-      card.revealed = true;
-      memoryOpened.push(card);
-      renderMemoryBoard();
-
-      if (memoryOpened.length < 2) {
-        return;
-      }
-
-      memoryMovesCount += 1;
-      updateMemoryStats();
-      memoryLocked = true;
-
-      const [firstCard, secondCard] = memoryOpened;
-
-      if (firstCard.key === secondCard.key) {
-        firstCard.matched = true;
-        secondCard.matched = true;
-        memoryOpened = [];
-        memoryPairsFound += 1;
-        memoryLocked = false;
-        memoryStatus.textContent = `Есть пара: ${firstCard.title}.`;
-        updateMemoryStats();
-        renderMemoryBoard();
-
-        if (memoryPairsFound === memoryThemes.length) {
-          finishMemoryGame();
-        }
-
-        return;
-      }
-
-      memoryStatus.textContent = "Пока не совпало. Запомни эмодзи и попробуй еще раз.";
-
-      window.setTimeout(() => {
-        firstCard.revealed = false;
-        secondCard.revealed = false;
-        memoryOpened = [];
-        memoryLocked = false;
-        renderMemoryBoard();
-      }, 700);
     }
 
     document.querySelectorAll(".video-trigger").forEach((button) => {
@@ -2231,10 +2097,17 @@
 
     chatToggleButton.addEventListener("click", () => {
       scrollToSection(chatSection);
+      window.setTimeout(() => {
+        markChatRead();
+        chatInput.focus();
+      }, 220);
+    });
 
-      if (!hasExplicitChatRole()) {
-        openRolePicker();
-      }
+    chatListItem.addEventListener("click", () => {
+      scrollToSection(chatSection);
+      window.setTimeout(() => {
+        markChatRead();
+      }, 180);
     });
 
     chatRoleSelf.addEventListener("click", () => {
@@ -2245,42 +2118,35 @@
       setChatAuthor("Ксюшка");
     });
 
-    changeRoleButton.addEventListener("click", () => {
-      openRolePicker();
+    chatSearch.addEventListener("input", () => {
+      chatSearchQuery = chatSearch.value.trim();
+      updateSearchState();
+      renderChatMessages();
     });
 
-    chatSidebarEditButton.addEventListener("click", () => {
-      openRolePicker();
+    chatSearchClear.addEventListener("click", () => {
+      chatSearch.value = "";
+      chatSearchQuery = "";
+      updateSearchState();
+      renderChatMessages();
+      chatSearch.focus();
     });
 
-    pickKsyushkaButton.addEventListener("click", () => {
-      setChatAuthor("Ксюшка");
-      closeRolePicker();
-    });
+    chatSuggestionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const text = button.dataset.text || "";
+        const needsSpace = chatInput.value && !chatInput.value.endsWith(" ");
 
-    pickKotenokButton.addEventListener("click", () => {
-      setChatAuthor("Котенок");
-      closeRolePicker();
-    });
-
-    copyKotenokLinkButton.addEventListener("click", async () => {
-      await copyChatLink("Котенок");
-    });
-
-    copyKsyushkaLinkButton.addEventListener("click", async () => {
-      await copyChatLink("Ксюшка");
-    });
-
-    copyCurrentLinkButton.addEventListener("click", async () => {
-      await copyChatLink(currentChatAuthor);
+        chatInput.value += `${needsSpace ? " " : ""}${text}`;
+        resizeChatInput();
+        saveChatDraft();
+        chatInput.focus();
+      });
     });
 
     chatForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      await addChatMessage(currentChatAuthor, chatInput.value);
-      chatInput.value = "";
-      resizeChatInput();
-      chatInput.focus();
+      await submitChatMessage();
     });
 
     chatInput.addEventListener("keydown", async (event) => {
@@ -2289,14 +2155,16 @@
       }
 
       event.preventDefault();
-      await addChatMessage(currentChatAuthor, chatInput.value);
-      chatInput.value = "";
-      resizeChatInput();
-      chatInput.focus();
+      await submitChatMessage();
     });
 
     chatInput.addEventListener("input", () => {
       resizeChatInput();
+      saveChatDraft();
+    });
+
+    chatInput.addEventListener("focus", () => {
+      markChatRead();
     });
 
     chatEmojiButtons.forEach((button) => {
@@ -2304,22 +2172,23 @@
         const emoji = button.dataset.emoji || "";
         chatInput.value += emoji;
         resizeChatInput();
+        saveChatDraft();
         chatInput.focus();
       });
     });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !chatRolePicker.hidden) {
-        closeRolePicker();
+    chatWindow.addEventListener("click", () => {
+      markChatRead();
+    });
+
+    window.addEventListener("focus", () => {
+      if (isChatInView()) {
+        markChatRead();
       }
     });
 
     gameToggleButton.addEventListener("click", () => {
       scrollToSection(gameSection);
-    });
-
-    memoryToggleButton.addEventListener("click", () => {
-      scrollToSection(memoryGameSection);
     });
 
     function spawnHeart(x, y) {
@@ -2522,26 +2391,6 @@
       hideRewardModal();
     });
 
-    memoryResetButton.addEventListener("click", () => {
-      resetMemoryGame();
-    });
-
-    memoryBoard.addEventListener("click", (event) => {
-      const target = event.target;
-
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-
-      const cardButton = target.closest(".memory-card");
-
-      if (!(cardButton instanceof HTMLElement)) {
-        return;
-      }
-
-      revealMemoryCard(cardButton.dataset.id);
-    });
-
     gameBoard.addEventListener("mousemove", (event) => {
       updateBasketPosition(event.clientX);
     });
@@ -2557,21 +2406,22 @@
 
     resetBasketPosition();
     updateGameProgress();
-    resetMemoryGame();
-    chatRoomCode.textContent = chatRoomId;
-    setChatShareFeedback(
-      window.location.protocol === "file:"
-        ? "Чтобы второй человек увидел этот чат, страницу нужно выложить в интернет и открывать по https."
-        : "Скопируй ссылку роли и открой ее на другом устройстве через интернет."
-    );
     setChatAuthor(getInitialChatAuthor());
-    resizeChatInput();
+    updateSearchState();
     loadChatMessages();
     startChatPolling();
     hideRewardModal();
 
-    if (!hasExplicitChatRole()) {
-      openRolePicker();
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          markChatRead();
+        }
+      }, {
+        threshold: 0.45
+      });
+
+      observer.observe(chatSection);
     }
 
     if (window.location.hash === "#chat-wrapper") {
